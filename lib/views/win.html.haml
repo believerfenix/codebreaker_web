@@ -1,0 +1,23 @@
+.row
+  .col.button
+    %button.btn.btn-primary{disabled: "disabled", type: "button"}
+      = I18n.t('win_page.level')
+      %span.badge.badge-light
+        #{@game.difficulty.user_difficulty}
+    %button.btn.btn-primary{disabled: "disabled", type: "button"}
+      = I18n.t('win_page.attempts')
+      %span.badge.badge-light
+        #{@game.users_attempts}/#{@game.difficulty.attempts}
+    %button.btn.btn-primary{disabled: "disabled", type: "button"}
+      = I18n.t('win_page.hints')
+      %span.badge.badge-light
+        #{@game.users_hints}/#{@game.difficulty.hints}
+%hr.mb-4/
+.row
+  .text-center
+    .text-center
+      %h3.text-white= I18n.t('win_page.congratulations', name: @game.user)
+    %img.img-fluid{alt: "You won the game!", src: "assets/images/won.gif"}/
+%hr.mb-4/
+%a.btn.btn-primary.btn-lg{href: Router::ROUTES[:main], role: "button"}= I18n.t('button.play_again')
+%a.btn.btn-success.btn-lg.float-right{href: Router::ROUTES[:statistics], role: "button"}= I18n.t('button.statistics')

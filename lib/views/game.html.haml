@@ -1,0 +1,43 @@
+%p.lead.text-white-70= I18n.t('game_page.welcome_message', name: @game.user)
+%p.lead.text-white-70= I18n.t('short_instruction', code_size: Codebreaker::Constant::CODE_SIZE, min: Codebreaker::Constant::MIN_CODE_VALUE, max: Codebreaker::Constant::MAX_CODE_VALUE)
+%hr.mb-4/
+= render_partial('errors')
+.row
+  .col.button
+    %button.btn.btn-primary{disabled: "disabled", type: "button"}
+      = I18n.t('game_page.level')
+      %span.badge.badge-light
+        #{@game.difficulty.user_difficulty}
+  .col.text-center.button
+    %button.btn.btn-primary{disabled: "disabled", type: "button"}
+      = I18n.t('game_page.attempts')
+      %span.badge.badge-light
+        #{@game.users_attempts}/#{@game.difficulty.attempts}
+  .col.button
+    %button.btn.btn-primary.float-right{disabled: "disabled", type: "button"}
+      = I18n.t('game_page.hints')
+      %span.badge.badge-light
+        #{@game.users_hints}/#{@game.difficulty.hints}
+%hr.mb-4/
+%form{:action => Router::ROUTES[:check_guess], :method => "post"}
+  .form-group
+    %input.form-control.guess_input{:autocomplete => "off", :name => "number", :placeholder => @guess_number || I18n.t('game_page.empty_placeholder_message'), :required => ""}/
+  .form-group.guess_markers_list
+    #guess_marker
+      - if @guess_result
+        - @guess_result.each_char do |sign|
+          - case sign
+          - when Codebreaker::Constant::STRONG_MATCH
+            %button.btn.btn-success.marks{:disabled => "disabled", :type => "button"}= Codebreaker::Constant::STRONG_MATCH
+          - when Codebreaker::Constant::SOFT_MATCH
+            %button.btn.btn-primary.marks{:disabled => "disabled", :type => "button"}= Codebreaker::Constant::SOFT_MATCH
+          - else
+            %button.btn.btn-danger.marks{:disabled => "disabled", :type => "button"}= Lib::Source::GameResponse::NO_MATCH
+  %hr.mb-4/
+  %button.btn.btn-primary.btn-lg{:type => "submit"}= I18n.t('button.submit')
+  %a{class: "btn btn-warning btn-lg float-right #{'disabled' unless @game.users_hints.positive?}", href: Router::ROUTES[:hint], role: "button"}
+    = I18n.t('button.hint')
+    - if @hints&.any?
+      -@hints.each do |hint|
+        %span.badge.badge-light
+          #{hint}
