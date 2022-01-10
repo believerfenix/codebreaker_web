@@ -7,4 +7,4 @@ use Rack::Reloader, 0
 use Rack::Static, urls: ['/assets'], root: 'layout'
 use Rack::Session::Cookie, key: 'rack.session', secret: 'secret'
 
-run Router
+run Lib::Source::Router

@@ -19,7 +19,7 @@
       %span.badge.badge-light
         #{@game.users_hints}/#{@game.difficulty.hints}
 %hr.mb-4/
-%form{:action => Router::ROUTES[:check_guess], :method => "post"}
+%form{:action => Lib::Source::Router::ROUTES[:check_guess], :method => "post"}
   .form-group
     %input.form-control.guess_input{:autocomplete => "off", :name => "number", :placeholder => @guess_number || I18n.t('game_page.empty_placeholder_message'), :required => ""}/
   .form-group.guess_markers_list
@@ -35,7 +35,7 @@
             %button.btn.btn-danger.marks{:disabled => "disabled", :type => "button"}= Lib::Source::GameResponse::NO_MATCH
   %hr.mb-4/
   %button.btn.btn-primary.btn-lg{:type => "submit"}= I18n.t('button.submit')
-  %a{class: "btn btn-warning btn-lg float-right #{'disabled' unless @game.users_hints.positive?}", href: Router::ROUTES[:hint], role: "button"}
+  %a{class: "btn btn-warning btn-lg float-right #{'disabled' unless @game.users_hints.positive?}", href: Lib::Source::Router::ROUTES[:hint], role: "button"}
     = I18n.t('button.hint')
     - if @hints&.any?
       -@hints.each do |hint|

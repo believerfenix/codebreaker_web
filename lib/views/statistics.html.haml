@@ -24,4 +24,4 @@
           %td{scope: "col"} #{value.difficulty.hints - value.hints}/#{value.difficulty.hints}
           %td{scope: "col"}= I18n.l value.date
 %hr.mb-4/
-%a.btn.btn-primary.btn-lg{href: Router::ROUTES[:main], role: "button"}= I18n.t('button.menu')
+%a.btn.btn-primary.btn-lg{href: Lib::Source::Router::ROUTES[:main], role: "button"}= I18n.t('button.menu')

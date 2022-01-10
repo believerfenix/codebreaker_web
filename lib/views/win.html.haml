@@ -19,5 +19,5 @@
       %h3.text-white= I18n.t('win_page.congratulations', name: @game.user)
     %img.img-fluid{alt: "You won the game!", src: "assets/images/won.gif"}/
 %hr.mb-4/
-%a.btn.btn-primary.btn-lg{href: Router::ROUTES[:main], role: "button"}= I18n.t('button.play_again')
-%a.btn.btn-success.btn-lg.float-right{href: Router::ROUTES[:statistics], role: "button"}= I18n.t('button.statistics')
+%a.btn.btn-primary.btn-lg{href: Lib::Source::Router::ROUTES[:main], role: "button"}= I18n.t('button.play_again')
+%a.btn.btn-success.btn-lg.float-right{href: Lib::Source::Router::ROUTES[:statistics], role: "button"}= I18n.t('button.statistics')

@@ -16,5 +16,5 @@
   %hr.mb-4/
   %button.btn.btn-primary.btn-lg{type: "submit"}= I18n.t('button.start')
   %span.float-right
-    %a.btn.btn-warning.btn-lg{href: Router::ROUTES[:rules], role: "button"}= I18n.t('button.rules')
-    %a.btn.btn-success.btn-lg{href: Router::ROUTES[:statistics], role: "button"}= I18n.t('button.statistics')
+    %a.btn.btn-warning.btn-lg{href: Lib::Source::Router::ROUTES[:rules], role: "button"}= I18n.t('button.rules')
+    %a.btn.btn-success.btn-lg{href: Lib::Source::Router::ROUTES[:statistics], role: "button"}= I18n.t('button.statistics')

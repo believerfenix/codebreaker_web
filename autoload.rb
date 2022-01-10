@@ -7,6 +7,7 @@ require 'bundler/setup'
 require 'rack'
 require 'i18n'
 require 'solargraph'
+require 'pry'
 require_relative 'I18nconfig/config'
 
 require_relative 'lib/modules/views'
