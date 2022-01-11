@@ -133,5 +133,8 @@ DEPENDENCIES
   simplecov-lcov (~> 0.8.0)
   solargraph (~> 0.44.2)
 
+RUBY VERSION
+   ruby 2.7.3p183
+
 BUNDLED WITH
    2.2.31

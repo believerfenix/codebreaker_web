@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+ruby '2.7.3'
 gem 'bundler', '~> 2.2.21'
 gem 'codebreaker', git: 'https://github.com/believerfenix/codebreaker.git', branch: 'dev'
 gem 'haml', '~> 5.2'
