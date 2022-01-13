@@ -9,11 +9,11 @@ gem 'haml', '~> 5.2'
 gem 'i18n', '~> 1.8.9'
 gem 'rack', '~> 2.2.3'
 gem 'shotgun', '~>0.9.2'
+gem 'pry', '~> 0.14.0'
 
 group :development do
   gem 'fasterer', '~> 0.9.0'
   gem 'lefthook', '~> 0.7.2'
-  gem 'pry', '~> 0.14.0'
   gem 'rubocop', '~> 1.12.0', require: false
   gem 'solargraph', '~> 0.40.4'
 end
