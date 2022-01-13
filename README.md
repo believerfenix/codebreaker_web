@@ -1,2 +1,2 @@
 # codebreaker-web
-https://codebreakerruby.herokuapp.com/
+https://codebreakerrackapp.herokuapp.com/
