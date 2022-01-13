@@ -7,9 +7,9 @@ gem 'bundler', '>= 1.17.2'
 gem 'codebreaker', git: 'https://github.com/believerfenix/codebreaker.git', branch: 'dev'
 gem 'haml', '~> 5.2'
 gem 'i18n', '~> 1.8.9'
+gem 'pry', '~> 0.14.0'
 gem 'rack', '~> 2.2.3'
 gem 'shotgun', '~>0.9.2'
-gem 'pry', '~> 0.14.0'
 
 group :development do
   gem 'fasterer', '~> 0.9.0'
