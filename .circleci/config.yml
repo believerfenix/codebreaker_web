@@ -56,7 +56,7 @@ jobs:
       - run_specs
 
 workflows:
-  version: 2.1
+  version: 2
   build:
     jobs:
       - lintering
