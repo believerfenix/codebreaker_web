@@ -1,0 +1,20 @@
+.row
+  %p.lead.text-white-70= I18n.t('short_instruction', code_size: Codebreaker::Constant::CODE_SIZE, min: Codebreaker::Constant::MIN_CODE_VALUE, max: Codebreaker::Constant::MAX_CODE_VALUE)
+%hr.mb-4/
+= render_partial('errors')
+%form{action: "game", method: "post"}
+  .form-group
+    %label.lead.label{for: "player_name"}= I18n.t('menu_page.players_name')
+    %input#player_name.form-control{autofocus: "", name: "player_name", placeholder: I18n.t('views.your_name_placeholder'), required: ""}/
+  .form-group
+    %label.lead.label{for: "level"}= I18n.t('menu_page.game_level')
+    %select.custom-select{name: "level", required: ""}
+      %option{value: ""}= I18n.t('menu_page.level_default')   
+      - Codebreaker::Difficulty::DIFFICULTIES.each do |difficulty, info|
+        %option{:value => "#{difficulty}"}
+          = I18n.t('menu_page.complexity_description', level: info[:name], attempts_number: info[:attempts], hint_number: info[:hints])
+  %hr.mb-4/
+  %button.btn.btn-primary.btn-lg{type: "submit"}= I18n.t('button.start')
+  %span.float-right
+    %a.btn.btn-warning.btn-lg{href: Lib::Source::Router::ROUTES[:rules], role: "button"}= I18n.t('button.rules')
+    %a.btn.btn-success.btn-lg{href: Lib::Source::Router::ROUTES[:statistics], role: "button"}= I18n.t('button.statistics')

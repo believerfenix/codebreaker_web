@@ -1,0 +1,27 @@
+%p.lead.text-white-70
+= I18n.t('statistics.title')
+%hr.mb-4/ 
+- if Codebreaker::Game.new("default").user_statistic.empty?
+  %p.text-center.lead.text-white-70= I18n.t('statistics.empty')
+- else
+  .table-responsive-md.scores
+    %table.table.table-striped.table.table-sm
+      %thead
+        %tr
+          %th{scope: "col"}= I18n.t('statistics.number')
+          %th{scope: "col"}= I18n.t('statistics.name')
+          %th{scope: "col"}= I18n.t('statistics.level')
+          %th{scope: "col"}= I18n.t('statistics.attempts')
+          %th{scope: "col"}= I18n.t('statistics.hints')
+          %th{scope: "col"}= I18n.t('statistics.date')
+      %tbody
+      - Codebreaker::Game.new("default").user_statistic.each_with_index do |value, index|
+        %tr
+          %th{scope: "col"} #{index + 1}
+          %td{scope: "col"} #{value.user}
+          %td{scope: "col"} #{value.difficulty.user_difficulty}
+          %td{scope: "col"} #{value.difficulty.attempts - value.attempts}/#{value.difficulty.attempts}
+          %td{scope: "col"} #{value.difficulty.hints - value.hints}/#{value.difficulty.hints}
+          %td{scope: "col"}= I18n.l value.date
+%hr.mb-4/
+%a.btn.btn-primary.btn-lg{href: Lib::Source::Router::ROUTES[:main], role: "button"}= I18n.t('button.menu')
