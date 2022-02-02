@@ -76,7 +76,7 @@ module Lib
       end
 
       def convert_result
-        (4 - @guess_result.size).times { @guess_result << NO_MATCH }
+        (Codebreaker::Constant::CODE_SIZE - @guess_result.size).times { @guess_result << NO_MATCH }
         @request.session[:result] = @guess_result
         redirect_to(:game)
       end
